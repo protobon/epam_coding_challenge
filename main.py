@@ -70,6 +70,7 @@ def main(commands):
             query = input('> ')
         if not query or query.strip() == "":
             print("invalid command")
+            continue
         if query.lower().strip() == "quit":
             break
         else:
@@ -77,13 +78,16 @@ def main(commands):
             command = args[0].upper()
             if command not in ["CREATE", "DELETE", "MOVE", "LIST"]:
                 print("available commands: CREATE, DELETE, MOVE, LIST")
+                continue
             if command == "CREATE":
                 if len(args) != 2:
                     print("usage: CREATE path/to/file")
+                    continue
                 insert(args[1])
             elif command == "DELETE":
                 if len(args) != 2:
                     print("usage: DELETE path/to/file")
+                    continue
                 delete(args[1])
             elif command == "MOVE":
                 if len(args) != 3:
