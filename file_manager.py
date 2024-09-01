@@ -1,11 +1,11 @@
 from sys import exit
+from typing import List
 
 
 class FileManager:
     """ Simulates a file system to Create, Delete, Move and List files within a directory. """
     def __init__(self, root: dict):
         """ Initializes from an existent directory 'root', can be empty """
-        print("Welcome! Type 'quit' to exit.")
         self.root = root
 
     def insert(self, entry: str):
@@ -116,3 +116,9 @@ class FileManager:
         else:
             self.print_tree(self.root)
         return
+
+    def run(self, commands: List[str] = None):
+        """ Runs CLI program in loop """
+        print("Welcome! Type 'quit' to exit.")
+        while True:
+            self.execute(commands.pop(0) if commands else None)

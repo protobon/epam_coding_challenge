@@ -21,5 +21,4 @@ if __name__ == '__main__':
         "DELETE foods/fruits/apples",
         "LIST"
     ]
-    while True:
-        fm.execute(commands.pop(0) if commands else None)
+    fm.run(commands)
